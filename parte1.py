@@ -71,6 +71,6 @@ if valores_a:
     plt.xlabel("x")
     plt.ylabel("f(x)")
     plt.legend()
-
+#oo
     # Mostrar o gráfico
     plt.show()
