@@ -1,4 +1,4 @@
-from sympy import symbols, sympify, integrate
+from sympy import symbols, sympify, integrate, pretty
 import numpy as np
 
 # Definir a variável simbólica
@@ -14,12 +14,13 @@ polinomio = sympify(polinomio_input)
 # Simplificar e ordenar o polinômio
 polinomio = polinomio.simplify()
 print("\nPolinômio simplificado e ordenado:")
-print(polinomio)
+print(pretty(polinomio))
 
 # Calcular a integral indefinida
 integral_indefinida = integrate(polinomio, x)
 print("\nIntegral indefinida da função f(x):")
-print(f"∫ f(x) dx = {integral_indefinida} + C")
+print("∫ f(x) dx =")
+print(pretty(integral_indefinida) + " + C")
 
 # Perguntar ao usuário se deseja calcular uma integral definida
 resposta = input("\nDeseja calcular uma integral definida? (Sim/Não): ").strip().lower()
@@ -32,6 +33,7 @@ if resposta == 'sim':
         # Calcular a integral definida
         integral_definida = integrate(polinomio, (x, a, b))
         print(f"\nIntegral definida de f(x) de {a} até {b}:")
-        print(f"∫[{a},{b}] f(x) dx = {integral_definida}")
+        print(f"∫[{a},{b}] f(x) dx =")
+        print(pretty(integral_definida))
     except ValueError:
         print("Por favor, digite valores numéricos válidos para 'a' e 'b'.")

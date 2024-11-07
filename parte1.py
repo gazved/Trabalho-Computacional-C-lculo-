@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from sympy import symbols, sympify, lambdify
+from sympy import symbols, sympify, lambdify, pretty
 import numpy as np
 
 # Definir a variável simbólica
@@ -15,7 +15,7 @@ polinomio = sympify(polinomio_input)
 # Simplificar e ordenar o polinômio
 polinomio = polinomio.simplify()
 print("\nPolinômio simplificado e ordenado:")
-print(polinomio)
+print(pretty(polinomio))
 
 # Converter o polinômio para uma função utilizável numericamente
 f = lambdify(x, polinomio, 'numpy')
